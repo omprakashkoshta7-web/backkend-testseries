@@ -62,7 +62,7 @@ export const getExamDetail = asyncHandler(async (req: AuthRequest, res: Response
   const tests = await Test.find(availableQuery)
     .select('name description difficulty duration totalQuestions isPremium price originalPrice subject subCategory testType class chapter tags activeFrom activeUntil')
     .sort({ isPremium: 1, createdAt: -1 })
-    .limit(200);
+    .limit(200000);
   const testsWithQuestionCount = await Promise.all(
     tests.map(async (test) => {
       const questionCount = await Question.countDocuments({ testId: test._id, isActive: true });
