@@ -36,7 +36,7 @@ async function callLLM(messages: any[], toolChoice?: 'auto' | 'none'): Promise<a
     model: MODEL,
     messages,
     temperature: 0.3,
-    max_tokens: 2000,
+    max_tokens: 800,
   };
   if (toolChoice !== 'none' && toolDefs.length > 0) {
     body.tools = toolDefs;
